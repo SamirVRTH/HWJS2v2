@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <script>
+        class Hamburger {
+            constructor(size, stuffing, topping) {
+                this.size = new Component(size);
+                this.stuffing = new Component(stuffing);
+                this.topping = new Array(new Component());
+            }
+
+            addTopping(topping) {
+                this.topping.push(new Component(topping));
+
+            }
+
+            /*
+            removeTopping(topping) {
+                this.topping.splice 
+            } У меня нет идей, как сделать возможность убрать элемент.
+            */
+
+            getToppings() {
+                let toppingArray = new Array()
+                for (const el of this.topping) {
+                    if (el.name != undefined) {
+                        toppingArray.push(elem.name);
+                    }
+                }
+                console.log(`Список добавок: ${toppingArray.join(', ')}`);
+            }
+
+            getSize() {
+                console.log(`Размер гамбургера: ${this.size.name}`);
+            }
+
+            getStuffing() {
+                console.log(`Начинка гамбургера: ${this.stuffing.name}`);
+            }
+
+        }
+
+        class Component {
+            constructor(name) {
+                this.name = name;
+                this.getInfo();
+            }
+
+            getInfo() {
+                if (this.name == `Маленький`) {
+                    this.price = 50;
+                    this.cal = 20;
+                }
+                if (this.name == `Большой`) {
+                    this.price = 100;
+                    this.cal = 40;
+                }
+                if (this.name == `С сыром`) {
+                    this.price = 10;
+                    this.cal = 20;
+                }
+                if (this.name == `С салатом`) {
+                    this.price = 20;
+                    this.cal = 5;
+                }
+                if (this.name == `С картофелем`) {
+                    this.price = 15;
+                    this.cal = 10;
+                }
+                if (this.name == `С приправой`) {
+                    this.price = 15;
+                    this.cal = 0;
+                }
+                if (this.name == `С майонезом`) {
+                    this.price = 20;
+                    this.cal = 5;
+                }
+                if (this.name == undefined) {
+                    this.price = 0;
+                    this.cal = 0;
+                }
+            }
+        }
+
+        const burger = new Hamburger('Большой', 'С картофелем');
+        burger.getSize();
+        burger.getStuffing();
+        burger.addTopping('С приправой');
+        burger.getToppings();
+        // burger.removeTopping('С приправой'); 
+        burger.getToppings();
+
+    </script>
+</body>
+
+</html>
